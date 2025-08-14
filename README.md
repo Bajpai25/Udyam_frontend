@@ -1,168 +1,157 @@
-# Udyam Registration Form Replication
+# Udyam Registration Frontend
 
-A full-stack application that replicates the Udyam registration process with web scraping, responsive UI, and robust backend validation.
+A modern, responsive React application that replicates the Udyam registration form with real-time validation and step-by-step workflow.
 
-## 🏗️ Architecture
+## 🚀 Tech Stack
 
-- **Frontend**: React + TypeScript + Tailwind CSS
-- **Backend**: Node.js + Express + TypeScript + Prisma ORM
-- **Database**: PostgreSQL
-- **Web Scraping**: Playwright
-- **Testing**: Jest + React Testing Library
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **React Hook Form** with Zod validation
+- **React Query** for API state management
+- **Zustand** for global state management
+- **React Router** for navigation
 
-## 🚀 Quick Start
+## 📋 Prerequisites
 
-### Prerequisites
-- Node.js 18+
-- PostgreSQL 15+
-- npm or yarn
+- Node.js 18 or higher
+- npm or yarn package manager
 
-### Installation
+## 🛠️ Installation
 
-1. **Clone and setup**
+1. **Clone the repository**
    \`\`\`bash
-   git clone <repository-url>
-   cd udyam-registration-app
-   npm run setup
+   git clone https://github.com/Bajpai25/Udyam_frontend
+   cd udyam-registration-app/frontend
    \`\`\`
 
-2. **Environment Setup**
+2. **Install dependencies**
    \`\`\`bash
-   # Backend
-   cp backend/.env.example backend/.env
-   # Edit backend/.env with your database credentials
+   npm install
+   \`\`\`
+
+3. **Environment Setup**
+   \`\`\`bash
+   cp .env.example .env
+   \`\`\`
    
-   # Frontend
-   cp frontend/.env.example frontend/.env
+   Update `.env` with your configuration:
+   \`\`\`env
+   NEXT_PUBLIC_API_URL=http://localhost:3001/api
+   NEXT_PUBLIC_APP_NAME=Udyam Registration
    \`\`\`
 
-3. **Database Setup**
-   \`\`\`bash
-   cd backend
-   npm run db:push
-   npm run db:seed
-   \`\`\`
+## 🚀 Development
 
-4. **Run Web Scraper** (Optional - form schema included)
-   \`\`\`bash
-   npm run scrape
-   \`\`\`
+\`\`\`bash
+# Start development server
+npm run dev
 
-5. **Start Development**
-   \`\`\`bash
-   npm run dev
-   \`\`\`
+# Build for production
+npm run build
 
-## 📁 Project Structure
+# Preview production build
+npm run preview
 
-\`\`\`
-udyam-registration-app/
-├── backend/                 # Node.js + Express API
-│   ├── src/
-│   │   ├── routes/         # API routes
-│   │   ├── controllers/    # Request handlers
-│   │   ├── services/       # Business logic
-│   │   ├── middleware/     # Custom middleware
-│   │   ├── lib/           # Utilities
-│   │   └── types/         # TypeScript types
-│   ├── prisma/            # Database schema & migrations
-│   └── tests/             # Backend tests
-├── frontend/               # React application
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Page components
-│   │   ├── hooks/         # Custom hooks
-│   │   ├── services/      # API calls
-│   │   ├── types/         # TypeScript types
-│   │   └── utils/         # Utilities
-│   └── tests/             # Frontend tests
-├── scraper/               # Web scraping module
-│   ├── src/
-│   │   ├── scraper.ts     # Main scraper
-│   │   └── types.ts       # Scraper types
-│   └── output/            # Scraped data
-└── docker-compose.yml     # Development environment
+# Run tests
+npm run test
+
+# Run linting
+npm run lint
 \`\`\`
 
-## 🔧 Available Scripts
+## 📱 Features
 
-- `npm run dev` - Start both frontend and backend in development
-- `npm run build` - Build both applications for production
-- `npm run test` - Run all tests
-- `npm run scrape` - Run web scraper
-- `npm run setup` - Install all dependencies
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Step-by-Step Registration**: Guided Aadhaar and PAN verification process
+- **Real-time Validation**: Immediate feedback with proper error handling
+- **Progress Tracking**: Visual progress indicator for registration steps
+- **Status Checking**: Check registration status with Aadhaar number
+- **Auto-fill**: PIN code to city/state mapping
+- **Accessibility**: WCAG compliant with proper ARIA labels
+
+## 🏗️ Project Structure
+
+\`\`\`
+src/
+├── components/          # Reusable UI components
+│   ├── forms/          # Form components (Step1Form, Step2Form)
+│   ├── Layout.tsx      # Main layout wrapper
+│   ├── Header.tsx      # Navigation header
+│   └── Footer.tsx      # Page footer
+├── pages/              # Page components
+│   ├── HomePage.tsx    # Landing page
+│   ├── RegistrationPage.tsx  # Registration flow
+│   └── StatusPage.tsx  # Status checking
+├── services/           # API service layer
+├── store/             # Zustand state management
+├── utils/             # Utility functions
+└── __tests__/         # Test files
+\`\`\`
+
+## 🔧 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_API_URL` | Backend API base URL | `http://localhost:3001/api` |
+| `NEXT_PUBLIC_APP_NAME` | Application name | `Udyam Registration` |
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+\`\`\`bash
+npm install -g vercel
+vercel --prod
+\`\`\`
+
+### Netlify
+1. Connect GitHub repository
+2. Set build command: `npm run build`
+3. Set publish directory: `dist`
+4. Add environment variables
+
+### Docker
+\`\`\`bash
+docker build -t udyam-frontend .
+docker run -p 3000:3000 udyam-frontend
+\`\`\`
 
 ## 🧪 Testing
 
 \`\`\`bash
 # Run all tests
-npm test
+npm run test
 
-# Backend tests only
-npm run test:backend
+# Run tests in watch mode
+npm run test:watch
 
-# Frontend tests only
-npm run test:frontend
+# Generate coverage report
+npm run test:coverage
 \`\`\`
 
-## 🐳 Docker Deployment
+## 📚 API Integration
 
-\`\`\`bash
-# Start with Docker Compose
-docker-compose up -d
+The frontend communicates with the backend API for:
+- Form field configuration
+- Registration submission (Step 1 & 2)
+- Status checking
+- Validation rules
 
-# View logs
-docker-compose logs -f
-\`\`\`
+## 🎨 Design System
 
-## 📋 Features
-
-- ✅ Web scraping of Udyam registration form
-- ✅ Responsive React UI with mobile-first design
-- ✅ Real-time form validation (PAN, Aadhaar formats)
-- ✅ REST API with comprehensive validation
-- ✅ PostgreSQL database with Prisma ORM
-- ✅ TypeScript throughout for type safety
-- ✅ Comprehensive test coverage
-- ✅ Docker containerization
-- ✅ Auto-fill PIN code to city/state mapping
-
-## 🔐 Environment Variables
-
-### Backend (.env)
-\`\`\`
-DATABASE_URL=postgresql://username:password@localhost:5432/udyam_db
-PORT=3001
-NODE_ENV=development
-JWT_SECRET=your-super-secret-jwt-key-here
-FRONTEND_URL=http://localhost:3000
-\`\`\`
-
-### Frontend (.env)
-\`\`\`
-VITE_API_URL=http://localhost:3001/api
-VITE_APP_NAME=Udyam Registration
-\`\`\`
-
-## 📚 API Documentation
-
-### Endpoints
-
-- `GET /api/form/fields` - Get form field configuration
-- `POST /api/registration/step1` - Submit Aadhaar details
-- `POST /api/registration/step2` - Submit PAN details
-- `POST /api/validation/aadhaar` - Validate Aadhaar format
-- `POST /api/validation/pan` - Validate PAN format
-- `GET /api/validation/pincode/:code` - Get city/state by PIN
+- **Colors**: Professional government portal theme
+- **Typography**: Space Grotesk (headings) + DM Sans (body)
+- **Spacing**: Consistent 8px grid system
+- **Components**: Reusable UI components with proper states
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests
+4. Add tests if applicable
 5. Submit a pull request
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
+This project is licensed under the MIT License.

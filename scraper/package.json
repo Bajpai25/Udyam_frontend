@@ -1,0 +1,23 @@
+{
+  "name": "udyam-scraper",
+  "version": "1.0.0",
+  "description": "Web scraper for Udyam registration form",
+  "main": "dist/index.js",
+  "scripts": {
+    "scrape": "ts-node src/scraper.ts",
+    "build": "tsc",
+    "dev": "nodemon src/scraper.ts"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "cheerio": "^1.0.0-rc.12",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "@types/fs-extra": "^11.0.4",
+    "typescript": "^5.2.2",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
+  }
+}

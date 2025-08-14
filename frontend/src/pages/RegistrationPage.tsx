@@ -1,5 +1,4 @@
 "use client"
-
 import { ProgressTracker } from "../components/ProgressTracker"
 import { Step1Form } from "../components/forms/Step1Form"
 import { Step2Form } from "../components/forms/Step2Form"
@@ -15,7 +14,7 @@ export function RegistrationPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 pt-8">
         <h1 className="font-heading font-bold text-3xl text-gray-800 mb-4">Udyam Registration</h1>
         <p className="text-gray-600 text-lg">Let's get your business registered step-by-step!</p>
       </div>

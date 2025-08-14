@@ -7,15 +7,15 @@ export function Header() {
   const isActive = (path: string) => location.pathname === path
 
   return (
-    <header className="bg-white shadow-sm border-b border-slate-200">
+    <header className="bg-white shadow-sm border-b border-slate-200 ">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
               <Building2 className="w-6 h-6 text-white" />
             </div>
-            <div>
-              <h1 className="font-heading font-bold text-xl text-gray-800">Udyam Registration</h1>
+            <div className="space-y-12">
+              <h1 className="font-heading font-bold text-xl text-gray-800 pt-12">Udyam Registration</h1>
               <p className="text-xs text-gray-600">Government of India</p>
             </div>
           </Link>

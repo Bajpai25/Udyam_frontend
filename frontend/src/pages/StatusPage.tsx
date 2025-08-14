@@ -47,7 +47,7 @@ export function StatusPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 pt-8">
         <h1 className="font-heading font-bold text-3xl text-gray-800 mb-4">Check Registration Status</h1>
         <p className="text-gray-600 text-lg">Enter your Aadhaar number to check your registration status</p>
       </div>
